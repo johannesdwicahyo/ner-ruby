@@ -13,24 +13,24 @@
 ## v0.1.1 — Bug Fixes & Robustness
 
 ### Fix
-- [ ] **API backend not connected to Recognizer** — `Recognizer.new` only supports ONNX models; add `Recognizer.from_api(provider:, api_key:)` factory method
-- [ ] **Decoder assumes bert-base-NER label map** — Custom models with different label orders silently produce wrong entities; require label map parameter or auto-detect from model config
-- [ ] **Pipeline softmax numerical instability** — Large logit values can overflow `Math.exp`; implement log-sum-exp trick
-- [ ] **Empty text handling** — `recognizer.recognize("")` passes empty tokens to model; add early return
-- [ ] **Entity score clamping** — Softmax should guarantee 0.0..1.0 but floating point errors can exceed; clamp output
+- [x] **API backend not connected to Recognizer** — `Recognizer.new` only supports ONNX models; add `Recognizer.from_api(provider:, api_key:)` factory method
+- [x] **Decoder assumes bert-base-NER label map** — Custom models with different label orders silently produce wrong entities; require label map parameter or auto-detect from model config
+- [x] **Pipeline softmax numerical instability** — Large logit values can overflow `Math.exp`; implement log-sum-exp trick
+- [x] **Empty text handling** — `recognizer.recognize("")` passes empty tokens to model; add early return
+- [x] **Entity score clamping** — Softmax should guarantee 0.0..1.0 but floating point errors can exceed; clamp output
 
 ### Add
-- [ ] **Model config loader** — Read `config.json` alongside ONNX model to auto-detect label map, max sequence length
-- [ ] **Graceful dependency errors** — Better error messages when onnx-ruby or tokenizer-ruby are missing
-- [ ] **Entity span offsets** — Track character-level `start_offset` and `end_offset` in original text (currently nil)
-- [ ] **Overlapping entity resolution** — When sub-tokens produce overlapping entities, merge by highest confidence
+- [x] **Model config loader** — Read `config.json` alongside ONNX model to auto-detect label map, max sequence length
+- [x] **Graceful dependency errors** — Better error messages when onnx-ruby or tokenizer-ruby are missing
+- [x] **Entity span offsets** — Track character-level `start_offset` and `end_offset` in original text (currently nil)
+- [x] **Overlapping entity resolution** — When sub-tokens produce overlapping entities, merge by highest confidence
 
 ### Test
-- [ ] API backend with WebMock (OpenAI + HuggingFace responses)
-- [ ] Empty text, single-word text, very long text (>512 tokens)
-- [ ] Malformed tokenizer output (missing tokens, extra tokens)
-- [ ] Label map with different entity types (DATE, TIME, MONEY)
-- [ ] Softmax edge cases (all zeros, all same value, very large values)
+- [x] API backend with WebMock (OpenAI + HuggingFace responses)
+- [x] Empty text, single-word text, very long text (>512 tokens)
+- [x] Malformed tokenizer output (missing tokens, extra tokens)
+- [x] Label map with different entity types (DATE, TIME, MONEY)
+- [x] Softmax edge cases (all zeros, all same value, very large values)
 
 ---
 
