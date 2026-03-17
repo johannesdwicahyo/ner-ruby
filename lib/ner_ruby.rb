@@ -9,6 +9,9 @@ require_relative "ner_ruby/pipeline"
 require_relative "ner_ruby/models/base"
 require_relative "ner_ruby/models/onnx"
 require_relative "ner_ruby/models/api"
+require_relative "ner_ruby/model_registry"
+require_relative "ner_ruby/model_cache"
+require_relative "ner_ruby/sliding_window"
 require_relative "ner_ruby/recognizer"
 
 module NerRuby
